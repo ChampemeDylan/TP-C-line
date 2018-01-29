@@ -37,19 +37,23 @@ public class Podium {
 
         //Bouton lancerPartie
         podium.add(retourMenu);
-        //retourMenu.addActionListener();
 
         //Bouton de sortie "Exit"
         podium.add(exit);
 
         exit.addActionListener(actionEvent -> {
             System.out.println("Click ! btn exit");
+            // Quitter le programme
             System.exit(0);
         });
 
         retourMenu.addActionListener(actionEvent -> {
             System.out.println("Click ! btn Menu");
-            // Ajouter methode menu.
+            // Fermer la fenetre du podium
+            fenPodium.dispose();
+
+            // Fermer la fenetre de la course
+
         });
 
     }
