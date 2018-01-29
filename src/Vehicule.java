@@ -54,6 +54,13 @@ public class Vehicule {
     }
 
     /*
+     * Méthode à déginir
+     */
+    public void dessiner(){
+
+    }
+
+    /*
      * Constructeur
      */
     public Vehicule(Integer numero, Integer puissance, Pilote pilote, String marque, String categorie) {

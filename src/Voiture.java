@@ -1,6 +1,11 @@
 public class Voiture extends Vehicule {
 
+    /*
+     * Méthode à définir
+     */
+    public void dessiner(){
 
+    }
 
     /*
      * Constructeur super classe

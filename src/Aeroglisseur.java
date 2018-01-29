@@ -1,6 +1,11 @@
 public class Aeroglisseur extends Vehicule {
 
+    /*
+     * Méthode à définir
+     */
+    public void dessiner(){
 
+    }
 
     /*
      * Constructeur super classe
