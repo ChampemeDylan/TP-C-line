@@ -1,4 +1,4 @@
-public class Pilote {
+public class Pilote extends Personne{
 
 
     /**
@@ -112,6 +112,9 @@ public class Pilote {
      * Constructeur
      */
 
+<<<<<<< HEAD
+    public Pilote(String nom, String prenom, int age, int experience, Palmares palmares, int numero) {
+=======
     /**
      * Constructeur de classe qui prend en parametres :
      *
@@ -122,10 +125,22 @@ public class Pilote {
      * @param palmares
      */
     public Pilote(String nom, String prenom, int age, int experience, Palmares palmares) {
+>>>>>>> fa158e2ef35f6d2fa76310c5ffca735ae91dc4b9
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.experience = experience;
         this.palmares = palmares;
+        this.numero = numero;
+    }
+
+    public Pilote(String nom, String prenom, int age, String sexe, String nom1, String prenom1, int age1, int experience, Palmares palmares, int numero) {
+        super(nom, prenom, age, sexe);
+        this.nom = nom1;
+        this.prenom = prenom1;
+        this.age = age1;
+        this.experience = experience;
+        this.palmares = palmares;
+        this.numero = numero;
     }
 }

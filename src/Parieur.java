@@ -1,4 +1,4 @@
-public class Parieur {
+public class Parieur extends Personne {
 
     // VARIABLES
     private String nom = "";
@@ -31,8 +31,7 @@ public class Parieur {
     }
 
     // CONSTRUCTEURS
-    public Parieur() {
-    }
+
 
     public Parieur(String nom, String prenom, int age) {
         this.nom = nom;
@@ -42,5 +41,10 @@ public class Parieur {
 
     public void parier(int numero, Double montant){
 
+    public Parieur(String nom, String prenom, int age, String sexe, String nom1, String prenom1, int age1) {
+        super(nom, prenom, age, sexe);
+        this.nom = nom1;
+        this.prenom = prenom1;
+        this.age = age1;
     }
 }
