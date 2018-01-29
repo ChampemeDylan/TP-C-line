@@ -1,57 +1,52 @@
 public class Palmares {
 
-    /*
-     * Définition des variables
+
+    /**
+     * Definition des variables
      */
-    private int nombreCourses;
+    private int polePosition;
     private int victoire;
-    private int position2;
-    private int position3;
 
-    /*
-     * Getter et Setter
+    /**
+     * Permet de retourner la Pole Position
+     * @return
      */
-
-    public int getNombreCourses() {
-        return nombreCourses;
+    public int getPolePosition() {
+        return polePosition;
     }
 
-    public void setNombreCourses(int nombreCourses) {
-        this.nombreCourses = nombreCourses;
+    /**
+     * ¨Permet de définir la Pole Position
+     * @param polePosition
+     */
+    public void setPolePosition(int polePosition) {
+        this.polePosition = polePosition;
     }
 
+    /**
+     * Permet de retourner la Victoire
+     * @return
+     */
     public int getVictoire() {
         return victoire;
     }
 
+    /**
+     * Permet de définir la victoire
+     * @param victoire
+     */
     public void setVictoire(int victoire) {
         this.victoire = victoire;
     }
 
-    public int getPosition2() {
-        return position2;
-    }
-
-    public void setPosition2(int position2) {
-        this.position2 = position2;
-    }
-
-    public int getPosition3() {
-        return position3;
-    }
-
-    public void setPosition3(int position3) {
-        this.position3 = position3;
-    }
-
-    /*
-     * Constructeur
+    /**
+     * Constructeur de classe qui prend en parametres :
+     *
+     * @param polePosition
+     * @param victoire
      */
-
-    public Palmares(int nombreCourses, int victoire, int position2, int position3) {
-        this.nombreCourses = nombreCourses;
+    public Palmares(int polePosition, int victoire) {
+        this.polePosition = polePosition;
         this.victoire = victoire;
-        this.position2 = position2;
-        this.position3 = position3;
     }
 }
