@@ -8,6 +8,7 @@ public class Pilote {
     private int age;
     private int experience;
     private Palmares palmares;
+    private int numero;
 
     /*
      * Getter et Setter
@@ -50,6 +51,14 @@ public class Pilote {
 
     public void setPalmares(Palmares palmares) {
         this.palmares = palmares;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     /*
