@@ -56,3 +56,6 @@ fabric.properties
 
 Supprimerait .gitignore
 Supprimerait .idea/
+/.idea/
+/.idea/TP-C-line.iml
+Supprimerait .idea/TP-C-line.iml
