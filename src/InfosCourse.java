@@ -5,8 +5,22 @@ import java.awt.event.ActionListener;
 
 public class InfosCourse extends JFrame implements ActionListener {
 
+    public static String TypeVehicule;
+    public static Integer NbrePilote;
+    public static String ChoixPays;
+
     JLabel infosJoueur = new JLabel("Bienvenue dans les informations de la Course !");
     JButton annulePartie = new JButton("Annuler partie ");
+    JButton okinfos = new JButton("Valider les infos ");
+
+    String[] tabChoix = {"Choisir le type de vehicule :", "Voiture", "Aéroglisseur"};
+    JComboBox listeType = new JComboBox(tabChoix);
+
+    String[] tabChoix2 = {"Choisir le nombre de pilote :", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"};
+    JComboBox nbPilote = new JComboBox(tabChoix2);
+
+    String[] tabChoix3 = {"Choisir le pays", "France", "Allemagne", "Espagne", "Russie", "Portugal", "Italie", "Suisse", "Belgique", "Hollande", "Grèce", "Norvège", "Suède", "Chine", "Japon", "Amérique"};
+    JComboBox listePays = new JComboBox(tabChoix3);
 
 
     public  InfosCourse() {
@@ -41,20 +55,14 @@ public class InfosCourse extends JFrame implements ActionListener {
         final JLabel donnees = new JLabel();
 
         //Choix de liste des véhicules
-        String[] tabChoix = {"Choisir le type de vehicule :", "Voiture", "Aéroglisseur"};
-        JComboBox listeType = new JComboBox(tabChoix);
         listeType.setBounds(20, 150, 400, 30);
         listeType.setBackground(Color.magenta);
 
         //Choix de liste du nombre de pilote
-        String[] tabChoix2 = {"Choisir le nombre de pilote :", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"};
-        JComboBox nbPilote = new JComboBox(tabChoix2);
         nbPilote.setBounds(20, 200, 400, 30);
         nbPilote.setBackground(Color.magenta);
 
         //Choix de liste du pays
-        String[] tabChoix3 = {"Choisir le pays", "France", "Allemagne", "Espagne", "Russie", "Portugal", "Italie", "Suisse", "Belgique", "Hollande", "Grèce", "Norvège", "Suède", "Chine", "Japon", "Amérique"};
-        JComboBox listePays = new JComboBox(tabChoix3);
         listePays.setBounds(20, 250, 400, 30);
         listePays.setBackground(Color.magenta);
 
@@ -68,12 +76,12 @@ public class InfosCourse extends JFrame implements ActionListener {
         center.setVisible(true);
 
         //Validation des infos
-        JButton okinfos = new JButton("Valider les infos ");
         okinfos.setBounds(70, 320, 150, 30);
 
         //Annulation partie
         annulePartie.setBounds(240, 320, 150, 30);
         annulePartie.addActionListener(new ItemAction());
+        okinfos.addActionListener((new ItemAction()));
 
         //Validation des actions
         center.add(okinfos);
@@ -86,9 +94,20 @@ public class InfosCourse extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
+
     //Action du retour à l'accueil en cas d'annulation de partie
     class ItemAction implements ActionListener{
         public void actionPerformed(ActionEvent e) {
+            if(e.getSource()==okinfos){
+                TypeVehicule = (String) listeType.getSelectedItem();
+                NbrePilote = (Integer) nbPilote.getSelectedItem();
+                ChoixPays = (String) listePays.getSelectedItem();
+                System.out.println(TypeVehicule);
+                System.out.println(NbrePilote);
+                System.out.println(ChoixPays);
+
+            }
+
             if(e.getSource()==annulePartie){
                 Accueil accueil = new Accueil();
                 accueil.setVisible(true);
