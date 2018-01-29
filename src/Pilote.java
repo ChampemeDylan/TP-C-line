@@ -7,6 +7,7 @@ public class Pilote extends Personne{
     private int experience;
     private Palmares palmares;
     private int numero;
+    private Double montant;
 
     // Getters et Setters
     public String getNom() {
@@ -59,16 +60,17 @@ public class Pilote extends Personne{
 
 
 //     Constructeurs
-    public Pilote(String nom, String prenom, int age, int experience, Palmares palmares, int numero) {
+    public Pilote(String nom, String prenom, int age, int experience, Palmares palmares, int numero, Double montant) {
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.experience = experience;
         this.palmares = palmares;
         this.numero = numero;
+        this.montant = montant;
     }
 
-    public Pilote(String nom, String prenom, int age, String sexe, String nom1, String prenom1, int age1, int experience, Palmares palmares, int numero) {
+    public Pilote(String nom, String prenom, int age, String sexe, String nom1, String prenom1, int age1, int experience, Palmares palmares, int numero, Double montant) {
         super(nom, prenom, age, sexe);
         this.nom = nom1;
         this.prenom = prenom1;
@@ -76,5 +78,6 @@ public class Pilote extends Personne{
         this.experience = experience;
         this.palmares = palmares;
         this.numero = numero;
+        this.montant = montant;
     }
 }
