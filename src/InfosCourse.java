@@ -127,8 +127,19 @@ public class InfosCourse extends JFrame implements ActionListener {
                 TypeVehicule = (String) listeType.getSelectedItem();
                 NbrePilote = (String) nbPilote.getSelectedItem();
                 ChoixPays = (String) listePays.getSelectedItem();
+                System.out.println(TypeVehicule);
+                System.out.println(NbrePilote);
+                System.out.println(ChoixPays);
+          //En cas de choix d'un seul pilote = message d'erreur et remise de la liste des choix (remis à l'initial)
+            if (NbrePilote.equals("1")){
+                JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
+                jop2.showMessageDialog(null, "Pour commencé une partie, il faut être au minimum 2 pilotes ! ", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+                listeType.setSelectedIndex(0);
+                nbPilote.setSelectedIndex(0);
+                listePays.setSelectedIndex(0);
             }
-
+            }
+            //Annulation de partie donc retour à la page d'accueil
             if(e.getSource()==annulePartie){
                 Accueil accueil = new Accueil();
                 accueil.setVisible(true);
