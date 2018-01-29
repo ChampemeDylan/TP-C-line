@@ -40,7 +40,7 @@ public class Parieur {
         this.age = age;
     }
 
-    public void parier(){
-        // TODO
+    public void parier(int numero, Double montant){
+
     }
 }
