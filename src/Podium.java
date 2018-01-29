@@ -7,7 +7,9 @@ public class Podium {
     JButton exit = new JButton("Exit");
 
     public Podium() {
+
         fenetre();
+
     }
 
     public void fenetre() {
@@ -72,12 +74,8 @@ public class Podium {
             fenPodium.dispose();
 
             // Fermer la fenetre de la course
-
         });
 
     }
 
-    private void mettreEnOrdre() {
-
-    }
 }
