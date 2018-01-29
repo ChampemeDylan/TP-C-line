@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Podium {
 
-    JButton retourMenu = new JButton("Menu principal");
+    JButton retourMenu = new JButton("Menu");
     JButton exit = new JButton("Exit");
 
     public Podium() {
@@ -36,11 +36,21 @@ public class Podium {
         fenPodium.setVisible(true);
 
         //Bouton lancerPartie
-        podium.add(Menu);
-        retourMenu.addActionListener();
+        podium.add(retourMenu);
+        //retourMenu.addActionListener();
 
         //Bouton de sortie "Exit"
         podium.add(exit);
+
+        exit.addActionListener(actionEvent -> {
+            System.out.println("Click ! btn exit");
+            System.exit(0);
+        });
+
+        retourMenu.addActionListener(actionEvent -> {
+            System.out.println("Click ! btn Menu");
+            // Ajouter methode menu.
+        });
 
     }
 
