@@ -12,22 +12,22 @@ public class Accueil extends JFrame implements ActionListener {
     ImageIcon icon = new ImageIcon("voiture.gif");
     JLabel img = new JLabel(icon);
 
-    public  Accueil(){
+    public Accueil() {
         super();
         build();//On initialise notre fenêtre
 
     }
 
-    private void build(){
+    private void build() {
         setTitle("Projet CGI - course auto"); //On donne un titre à l'application
-        setSize(500,500); //On donne une taille à notre fenêtre
+        setSize(500, 500); //On donne une taille à notre fenêtre
         setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
         setResizable(false); //On permet le redimensionnement
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
         setContentPane(buildContentPane());
     }
 
-    private JPanel buildContentPane(){
+    private JPanel buildContentPane() {
         JPanel panel = new JPanel();
         panel.setBackground(Color.black);
 
@@ -51,18 +51,24 @@ public class Accueil extends JFrame implements ActionListener {
         //Bouton de sortie "Exit"
         panel.add(exit);
 
-        //Pour pouvoir lancer l'action
-        lancerPartie.addActionListener(this);
-        exit.addActionListener(this);
+        lancerPartie.addActionListener(actionEvent -> {
+            System.out.println("Click! Lancement de la course");
+        });
+
+        exit.addActionListener(actionEvent -> {
+            // Quitter le programme
+            System.out.println("Click! Fermeture du jeu");
+            System.exit(0);
+        });
+
         return panel;
 
     }
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        if (arg0.getSource()==lancerPartie) {
-        }
-        else if (arg0.getSource()==exit) {
+        if (arg0.getSource() == lancerPartie) {
+        } else if (arg0.getSource() == exit) {
         }
     }
 }
