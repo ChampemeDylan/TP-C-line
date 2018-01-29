@@ -1,10 +1,12 @@
 public class Personne {
 
+    // Creation des variables de classe: nom, prenom, age, sexe
     private String nom;
     private String prenom;
     private int age = 0;
     private String sexe;
 
+    // Creation des Getters/Setters
     public String getNom() {
         return nom;
     }
@@ -37,6 +39,7 @@ public class Personne {
         this.sexe = sexe;
     }
 
+    // Création des constructeurs
     public Personne(){
 
     }
