@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class InfosCourse extends JFrame implements ActionListener {
 
     public static String TypeVehicule;
-    public static Integer NbrePilote;
+    public static String NbrePilote;
     public static String ChoixPays;
 
     JLabel infosJoueur = new JLabel("Bienvenue dans les informations de la Course !");
@@ -21,6 +21,31 @@ public class InfosCourse extends JFrame implements ActionListener {
 
     String[] tabChoix3 = {"Choisir le pays", "France", "Allemagne", "Espagne", "Russie", "Portugal", "Italie", "Suisse", "Belgique", "Hollande", "Grèce", "Norvège", "Suède", "Chine", "Japon", "Amérique"};
     JComboBox listePays = new JComboBox(tabChoix3);
+
+//Getter and Setter
+    public JComboBox getListeType() {
+        return listeType;
+    }
+
+    public void setListeType(JComboBox listeType) {
+        this.listeType = listeType;
+    }
+
+    public static String getNbrePilote() {
+        return NbrePilote;
+    }
+
+    public static void setNbrePilote(String nbrePilote) {
+        NbrePilote = nbrePilote;
+    }
+
+    public static String getChoixPays() {
+        return ChoixPays;
+    }
+
+    public static void setChoixPays(String choixPays) {
+        ChoixPays = choixPays;
+    }
 
 
     public  InfosCourse() {
@@ -100,12 +125,8 @@ public class InfosCourse extends JFrame implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if(e.getSource()==okinfos){
                 TypeVehicule = (String) listeType.getSelectedItem();
-                NbrePilote = (Integer) nbPilote.getSelectedItem();
+                NbrePilote = (String) nbPilote.getSelectedItem();
                 ChoixPays = (String) listePays.getSelectedItem();
-                System.out.println(TypeVehicule);
-                System.out.println(NbrePilote);
-                System.out.println(ChoixPays);
-
             }
 
             if(e.getSource()==annulePartie){
