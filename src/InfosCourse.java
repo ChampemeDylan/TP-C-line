@@ -23,25 +23,59 @@ public class InfosCourse extends JFrame implements ActionListener {
     JComboBox listePays = new JComboBox(tabChoix3);
 
 //Getter and Setter
+
+    /**
+     *
+     *@return get
+     * Modifier les valeurs des variables de la liste Type
+     */
     public JComboBox getListeType() {
         return listeType;
     }
+
+    /**
+     *
+     * @param listeType
+     * tous les set = Accéder aux valeurs des variable du véhicule
+     */
 
     public void setListeType(JComboBox listeType) {
         this.listeType = listeType;
     }
 
+    /**
+     *
+     *@return get
+     * Modifier les valeurs des variables du nombre de Pilote
+     */
     public static String getNbrePilote() {
         return NbrePilote;
     }
+
+    /**
+     *
+     * @param nbrePilote
+     * tous les set = Accéder aux valeurs des variable du véhicule
+     */
 
     public static void setNbrePilote(String nbrePilote) {
         NbrePilote = nbrePilote;
     }
 
+    /**
+     *
+     *@return get
+     * Modifier les valeurs des variables du choix Pays
+     */
     public static String getChoixPays() {
         return ChoixPays;
     }
+
+    /**
+     *
+     * @param choixPays
+     * tous les set = Accéder aux valeurs des variable du véhicule
+     */
 
     public static void setChoixPays(String choixPays) {
         ChoixPays = choixPays;
