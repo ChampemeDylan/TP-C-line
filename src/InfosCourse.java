@@ -1,3 +1,5 @@
+import com.sun.javaws.jnl.InformationDesc;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -177,6 +179,11 @@ public class InfosCourse extends JFrame implements ActionListener {
             if(e.getSource()==annulePartie){
                 Accueil accueil = new Accueil();
                 accueil.setVisible(true);
+                InfosCourse.this.dispose();
+            }
+            if (e.getSource()== okinfos){
+                InfoPilote infoPilote = new InfoPilote();
+                infoPilote.setVisible(true);
                 InfosCourse.this.dispose();
             }
         }
