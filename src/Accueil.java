@@ -53,6 +53,7 @@ public class Accueil extends JFrame implements ActionListener {
 
         lancerPartie.addActionListener(actionEvent -> {
             System.out.println("Click! Lancement de la course");
+            PageDeCourse course = new PageDeCourse();
         });
 
         exit.addActionListener(actionEvent -> {
