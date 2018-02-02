@@ -14,17 +14,6 @@ public class Podium {
 
     public void fenetre() {
 
-        // Création du panel
-        JPanel podium = new JPanel();
-        // couleur de fond du panel
-        podium.setBackground(Color.DARK_GRAY);
-        // Police et taille du titre
-        Font f = new Font("Arial", Font.PLAIN, 36);
-        // Défini la couleur de la police
-        podium.setForeground(Color.BLUE);
-        // Definition de la police du panel
-        podium.setFont(f);
-
         // Création d'une fenetre
         JWindow fenPodium = new JWindow();
         // On lui donne une taille pour qu'on puisse la voir
@@ -32,30 +21,18 @@ public class Podium {
         // Centre la fenetre au milieu de l'écran
         fenPodium.setLocationRelativeTo(null);
         // Définition du content pane
-        fenPodium.setContentPane(podium);
+        fenPodium.setContentPane(pane());
         // Garder au premier plan
         fenPodium.setAlwaysOnTop(true);
-
         //Rendre podium visible
         fenPodium.setVisible(true);
-
         //On définit le layout à utiliser sur le content pane
         fenPodium.setLayout(new BorderLayout());
-
-
-
 
         // Haut de Page
         fenPodium.getContentPane().add(new JLabel("Scores"), BorderLayout.NORTH);
         // Au centre
         fenPodium.getContentPane().add(new JTable(15, 3), BorderLayout.CENTER);
-        // Bouton lancerPartie
-        podium.add(retourMenu, BorderLayout.SOUTH);
-        // Bouton de sortie "Exit"
-        podium.add(exit, BorderLayout.SOUTH);
-
-
-
 
         // rendre la fenetre visible
         fenPodium.setVisible(true);
@@ -76,6 +53,24 @@ public class Podium {
             // Fermer la fenetre de la course
         });
 
+    }
+
+    public void pane() {
+        // Création du panel
+        JPanel podium = new JPanel();
+        // couleur de fond du panel
+        podium.setBackground(Color.DARK_GRAY);
+        // Police et taille du titre
+        Font f = new Font("Arial", Font.PLAIN, 36);
+        // Défini la couleur de la police
+        podium.setForeground(Color.BLUE);
+        // Definition de la police du panel
+        podium.setFont(f);
+
+        // Bouton lancerPartie
+        podium.add(retourMenu, BorderLayout.SOUTH);
+        // Bouton de sortie "Exit"
+        podium.add(exit, BorderLayout.SOUTH);
     }
 
 }
