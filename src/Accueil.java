@@ -8,6 +8,7 @@ public class Accueil extends JFrame implements ActionListener {
 
     JButton lancerPartie = new JButton("Lancer une partie");
     JButton exit = new JButton("Exit");
+    JButton podium = new JButton("Podium");
     JLabel accueil = new JLabel("Bienvenue dans le GAME !");
     ImageIcon icon = new ImageIcon("voiture.gif");
     JLabel img = new JLabel(icon);
@@ -51,6 +52,13 @@ public class Accueil extends JFrame implements ActionListener {
         //Bouton de sortie "Exit"
         panel.add(exit);
 
+        //Bouton de sortie "Exit"
+        panel.add(podium);
+
+        podium.addActionListener(actionEvent  -> {
+            Podium podium = new Podium();
+        });
+
         lancerPartie.addActionListener(actionEvent -> {
             InfosCourse infosCourse =  new InfosCourse();
             infosCourse.setVisible(true);
@@ -68,6 +76,8 @@ public class Accueil extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
+        if (arg0.getSource() == podium)
+            Accueil.this.dispose();
         if (arg0.getSource() == lancerPartie) {
 
         } else if (arg0.getSource() == exit) {

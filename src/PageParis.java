@@ -12,15 +12,24 @@ public class PageParis extends JFrame implements ActionListener {
     Pilote piloteC = new Pilote("Aubry", "Camille", 25, "F",5,null, 19);
     Pilote piloteB = new Pilote("Bon", "Jean", 23, "H",5,null, 5);
 
-    JLabel nbParieur = new JLabel("Bienvenue dans les informations de la Course !");
+    JLabel nbParieur = new JLabel("Il est temps de choisir votre pilote et de parier !");
     JButton annulePartie = new JButton("Retour accueil ");
     JButton okinfos = new JButton("Valider les infos ");
 
     String[] comboPilotes = {"Choisissez votre pilote :", piloteA.getNom()+ " "+piloteA.getPrenom(), piloteB.getNom()+" "+piloteB.getPrenom(), piloteC.getNom()+" "+piloteC.getPrenom()};
     JComboBox listeType = new JComboBox(comboPilotes);
 
+    JLabel parieurSelect1 = new JLabel("Parieur 1");
+    JLabel parieurSelect2 = new JLabel("Parieur 2");
+    JLabel parieurSelect3 = new JLabel("Parieur 3");
+    JLabel parieurSelect4 = new JLabel("Parieur 4");
+    JLabel parieurSelect5 = new JLabel("Parieur 5");
+    JLabel parieurSelect6 = new JLabel("Parieur 6");
+
     String[] tabChoix2 = {"Choisissez le nombre de parieurs :", "1", "2", "3", "4", "5", "6"};
     JComboBox nbPilote = new JComboBox(tabChoix2);
+
+    String choixCombo = (String) nbPilote.getSelectedItem();
 
 
 
@@ -64,7 +73,30 @@ public class PageParis extends JFrame implements ActionListener {
         nbreParieurs = nbreParieurs;
     }
 
+private void parieurs(){
+ switch (choixCombo){
+     case "1":
+         parieurSelect1.setVisible(true);
+         break;
+     case "2":
+         parieurSelect2.setVisible(true);
+         break;
+     case "3":
+         parieurSelect3.setVisible(true);
+         break;
+     case "4":
+         parieurSelect4.setVisible(true);
+         break;
+     case "5":
+         parieurSelect5.setVisible(true);
+         break;
+     case "6":
+         parieurSelect5.setVisible(true);
+         break;
+         default:
+ }
 
+}
 
 
     public  PageParis() {
@@ -114,6 +146,20 @@ public class PageParis extends JFrame implements ActionListener {
         center.setLayout(null);
         center.setVisible(true);
 
+        //ajout des paris
+        center.add(parieurSelect1);
+        parieurSelect1.setVisible(false);
+        center.add(parieurSelect1);
+        parieurSelect2.setVisible(false);
+        center.add(parieurSelect1);
+        parieurSelect3.setVisible(false);
+        center.add(parieurSelect1);
+        parieurSelect4.setVisible(false);
+        center.add(parieurSelect1);
+        parieurSelect5.setVisible(false);
+        center.add(parieurSelect1);
+        parieurSelect6.setVisible(false);
+
         //Validation des infos
         okinfos.setBounds(70, 320, 150, 30);
 
@@ -140,16 +186,8 @@ public class PageParis extends JFrame implements ActionListener {
             if(e.getSource()==okinfos){
                choixPilote = (String) listeType.getSelectedItem();
                 nbreParieurs = (String) nbPilote.getSelectedItem();
-                System.out.println(choixPilote);
-                System.out.println(nbPilote);
-                //En cas de choix d'un seul pilote = message d'erreur et remise de la liste des choix (remis à l'initial)
-                if (nbreParieurs.equals("1")){
-                    JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-                    jop2.showMessageDialog(null, "Pour commencé une partie, il faut être au minimum 2 pilotes ! ", "Erreur", JOptionPane.INFORMATION_MESSAGE);
-                    listeType.setSelectedIndex(0);
-                    nbPilote.setSelectedIndex(0);
-                }
             }
+
             //Validation des infos (amène sur la page d'infos pilote)
             if (e.getSource()== okinfos){
                 PageDeCourse pageDeCourse = new PageDeCourse();
