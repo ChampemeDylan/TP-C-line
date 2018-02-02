@@ -52,13 +52,13 @@ public class Accueil extends JFrame implements ActionListener {
         panel.add(exit);
 
         lancerPartie.addActionListener(actionEvent -> {
-            System.out.println("Click! Lancement de la course");
-            PageDeCourse course = new PageDeCourse();
+            InfosCourse infosCourse =  new InfosCourse();
+            infosCourse.setVisible(true);
+            this.dispose();
         });
 
         exit.addActionListener(actionEvent -> {
             // Quitter le programme
-            System.out.println("Click! Fermeture du jeu");
             System.exit(0);
         });
 
@@ -69,9 +69,7 @@ public class Accueil extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent arg0) {
         if (arg0.getSource() == lancerPartie) {
-            InfosCourse infosCourse =  new InfosCourse();
-            infosCourse.setVisible(true);
-            this.dispose();
+
         } else if (arg0.getSource() == exit) {
         }
 
