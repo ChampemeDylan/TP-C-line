@@ -61,8 +61,9 @@ public class Podium /* extends PageDeCourse */ {
 
         // Police et taille du titre
         Font f = new Font("Arial", Font.PLAIN, 36);
-        // Défini la couleur de la police
-        podium.setForeground(Color.BLUE);
+        // Défini la couleur de la police de labelScore
+        labelScore.setForeground(Color.WHITE);
+
         // Definition de la police du panel
         podium.setFont(f);
 
