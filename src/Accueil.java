@@ -69,7 +69,11 @@ public class Accueil extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent arg0) {
         if (arg0.getSource() == lancerPartie) {
+            InfosCourse infosCourse =  new InfosCourse();
+            infosCourse.setVisible(true);
+            this.dispose();
         } else if (arg0.getSource() == exit) {
         }
+
     }
 }
