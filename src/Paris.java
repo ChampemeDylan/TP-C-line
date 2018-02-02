@@ -56,8 +56,9 @@ public class Paris {
         // parcours du tableau de paris
         for (int i = 0; i <=14 ; i++){
             for (int j = 0; j <= tabPilotes[i].length; j++){
-                tabPilotes[i][j].setGain();
+                tabPilotes[i][j].setGain(500);
             }
         }
+        return null;
     }
 }

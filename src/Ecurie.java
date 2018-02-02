@@ -1,24 +1,25 @@
 public class Ecurie {
-
-
     /**
      * Definition des variables
      */
-    private String nom;
+    private String nom ;
+    private String nationalite;
     private Vehicule vehicule;
     private Pilote pilote;
 
 
+
     /**
      * Constructeur de classe qui prend en parametres :
-     *
-     * @param nom
+     *  @param nom
      * @param vehicule
      * @param pilote
+     * @param nationalite
      */
 
-    public Ecurie(String nom, Vehicule vehicule, Pilote pilote) {
+    public Ecurie(String nom, String nationalite , Vehicule vehicule, Pilote pilote) {
         this.nom = nom;
+        this.nationalite = nationalite;
         this.vehicule = vehicule;
         this.pilote = pilote;
     }
@@ -40,6 +41,14 @@ public class Ecurie {
      */
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getNationalite() {
+        return nationalite;
+    }
+
+    public void setNationalite(String nationalite) {
+        this.nationalite = nationalite;
     }
 
     /**

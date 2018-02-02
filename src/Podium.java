@@ -21,18 +21,13 @@ public class Podium {
         // Centre la fenetre au milieu de l'écran
         fenPodium.setLocationRelativeTo(null);
         // Définition du content pane
-        fenPodium.setContentPane(pane());
+        fenPodium.setContentPane(panelA());
         // Garder au premier plan
         fenPodium.setAlwaysOnTop(true);
         //Rendre podium visible
         fenPodium.setVisible(true);
         //On définit le layout à utiliser sur le content pane
         fenPodium.setLayout(new BorderLayout());
-
-        // Haut de Page
-        fenPodium.getContentPane().add(new JLabel("Scores"), BorderLayout.NORTH);
-        // Au centre
-        fenPodium.getContentPane().add(new JTable(15, 3), BorderLayout.CENTER);
 
         // rendre la fenetre visible
         fenPodium.setVisible(true);
@@ -50,16 +45,22 @@ public class Podium {
             // Fermer la fenetre du podium
             fenPodium.dispose();
 
-            // Fermer la fenetre de la course
+    // Fermer la fenetre de la course
+
         });
 
     }
 
-    public void pane() {
+    public Container panelA() {
+
+        JLabel labelScore = new JLabel("Scores",JLabel.CENTER);
+        JTable tableauScore = new JTable(15, 3);
+
         // Création du panel
         JPanel podium = new JPanel();
         // couleur de fond du panel
         podium.setBackground(Color.DARK_GRAY);
+
         // Police et taille du titre
         Font f = new Font("Arial", Font.PLAIN, 36);
         // Défini la couleur de la police
@@ -67,10 +68,18 @@ public class Podium {
         // Definition de la police du panel
         podium.setFont(f);
 
+
+        // Haut de Page
+        podium.add( labelScore, BorderLayout.NORTH );
+
+        // Au centre
+        podium.add( tableauScore, BorderLayout.CENTER );
+
         // Bouton lancerPartie
         podium.add(retourMenu, BorderLayout.SOUTH);
         // Bouton de sortie "Exit"
         podium.add(exit, BorderLayout.SOUTH);
-    }
 
+        return podium;
+    }
 }
