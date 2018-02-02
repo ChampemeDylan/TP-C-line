@@ -102,6 +102,7 @@ private void parieurs(){
     public  PageParis() {
         super();
         build();
+        parieurs();
     }
 
     private void build() {
@@ -141,6 +142,7 @@ private void parieurs(){
         //ajout des actions
         center.add(nbParieur);
         center.add(listeType);
+        center.add(nbPilote);
         center.add(donnees);
         center.setSize(600, 600);
         center.setLayout(null);
