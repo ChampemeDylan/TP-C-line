@@ -10,6 +10,7 @@ public class InfosCourse extends JFrame implements ActionListener {
     public static String TypeVehicule;
     public static String NbrePilote;
     public static String ChoixPays;
+    public static Boolean conditionBouton;
 
     JLabel infosJoueur = new JLabel("Bienvenue dans les informations de la Course !");
     JButton annulePartie = new JButton("Annuler partie ");
@@ -166,6 +167,7 @@ public class InfosCourse extends JFrame implements ActionListener {
                 System.out.println(TypeVehicule);
                 System.out.println(NbrePilote);
                 System.out.println(ChoixPays);
+                conditionBouton = true;
           //En cas de choix d'un seul pilote = message d'erreur et remise de la liste des choix (remis à l'initial)
             if (NbrePilote.equals("1")){
                 JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
@@ -173,18 +175,22 @@ public class InfosCourse extends JFrame implements ActionListener {
                 listeType.setSelectedIndex(0);
                 nbPilote.setSelectedIndex(0);
                 listePays.setSelectedIndex(0);
+                conditionBouton = false;
             }
             }
             //Annulation de partie donc retour à la page d'accueil
             if(e.getSource()==annulePartie){
-                Accueil accueil = new Accueil();
-                accueil.setVisible(true);
-                InfosCourse.this.dispose();
+                    Accueil accueil = new Accueil();
+                    accueil.setVisible(true);
+                    InfosCourse.this.dispose();
+
             }
             if (e.getSource()== okinfos){
-                InfoPilote infoPilote = new InfoPilote();
-                infoPilote.setVisible(true);
-                InfosCourse.this.dispose();
+                if (conditionBouton) {
+                    InfoPilote infoPilote = new InfoPilote();
+                    infoPilote.setVisible(true);
+                    InfosCourse.this.dispose();
+                }
             }
         }
     }

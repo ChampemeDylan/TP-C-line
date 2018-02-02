@@ -151,9 +151,9 @@ public class PageParis extends JFrame implements ActionListener {
                 }
             }
             //Validation des infos (amène sur la page d'infos pilote)
-            if(e.getSource()==okinfos){
-                InfoPilote infoPilote = new InfoPilote();
-                infoPilote.setVisible(true);
+            if (e.getSource()== okinfos){
+                PageDeCourse pageDeCourse = new PageDeCourse();
+                pageDeCourse.setVisible(true);
                 PageParis.this.dispose();
             }
             //Annulation de partie donc retour à la page d'accueil
