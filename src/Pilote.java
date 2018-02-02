@@ -14,7 +14,7 @@ public class Pilote extends Personne{
         this.experience = experience;
     }
 
-    public Palmares getPalmares() {
+    public  Palmares getPalmares() {
         return palmares;
     }
 
@@ -30,12 +30,12 @@ public class Pilote extends Personne{
         this.numero = numero;
     }
 
-    //     Constructeurs
-    public Pilote(int experience, Palmares palmares, int numero) {
-        this.experience = experience;
-        this.palmares = palmares;
-        this.numero = numero;
-    }
+//    //     Constructeurs
+//    public Pilote(int experience, Palmares palmares, int numero) {
+//        this.experience = experience;
+//        this.palmares = palmares;
+//        this.numero = numero;
+//    }
 
     public Pilote(String nom, String prenom, int age, String sexe, int experience, Palmares palmares, int numero) {
         super(nom, prenom, age, sexe);
