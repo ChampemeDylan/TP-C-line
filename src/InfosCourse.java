@@ -171,7 +171,7 @@ public class InfosCourse extends JFrame implements ActionListener {
           //En cas de choix d'un seul pilote = message d'erreur et remise de la liste des choix (remis à l'initial)
             if (NbrePilote.equals("1")){
                 JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-                jop2.showMessageDialog(null, "Pour commencé une partie, il faut être au minimum 2 pilotes ! ", "Erreur", JOptionPane.INFORMATION_MESSAGE);
+                jop2.showMessageDialog(null, "Pour commencer une partie, il faut être au minimum 2 pilotes ! ", "Erreur", JOptionPane.INFORMATION_MESSAGE);
                 listeType.setSelectedIndex(0);
                 nbPilote.setSelectedIndex(0);
                 listePays.setSelectedIndex(0);
@@ -187,9 +187,12 @@ public class InfosCourse extends JFrame implements ActionListener {
             }
             if (e.getSource()== okinfos){
                 if (conditionBouton) {
-                    InfoPilote infoPilote = new InfoPilote();
+                  /*  InfoPilote infoPilote = new InfoPilote();
                     infoPilote.setVisible(true);
-                    InfosCourse.this.dispose();
+                    InfosCourse.this.dispose();*/
+                  PageParis paris = new PageParis();
+                  paris.setVisible(true);
+                  InfosCourse.this.dispose();
                 }
             }
         }
