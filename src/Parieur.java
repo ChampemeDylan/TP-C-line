@@ -1,7 +1,15 @@
 public class Parieur extends Personne {
-
     // VARIABLES
-    private Double montant = 500d;
+    private int gain = 0;
+
+    // GETTERS ET SETTERS
+    public int getGain() {
+        return gain;
+    }
+
+    public void setGain(int gain) {
+        this.gain = gain;
+    }
 
     // CONSTRUCTEURS
     public Parieur(String nom, String prenom, int age, String sexe) {
