@@ -1,5 +1,10 @@
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
 
 public class PanelDeCourse extends JPanel{
 
@@ -7,13 +12,16 @@ public class PanelDeCourse extends JPanel{
     private int[] y = new int[20];
     private int[] carSpeeds = new int[20];
     private int[] winners = new int[20]; // tableau des numeros des voitures gagantes
+    private List<Integer> classement = new ArrayList<>();
+    private Map<Integer, Integer> arrivee = new HashMap();
     private int winnersIndex = 0;
     private int numWinners = 0; // numero de la voiture gagnante
     private int finish = 1400;
-    private int keepGoing = 1;
+    private int keepGoing = 10;
     private static int amtLeft = 500;
     private static int car = 0;
     private static int bet = 0;
+    private int place = 1;
     private String[] labels = new String[20];
     protected String output = "";
     private Polygon[] tops = new Polygon[20];
@@ -25,21 +33,39 @@ public class PanelDeCourse extends JPanel{
     static Timer timer;
 
 
+    /*
+     * crée la course
+     */
+    public void runCar(){
+        /*
+         * initialise les tableaux
+         */
+        x[0] = 0;
+        y[0] = 200;
+        for(int i = 0; i < 15; i++){
+            x[i] = 0;
+            y[i+1] = y[i]+50;
+            labels[i] = ""+(i+1);
+        }
 
+        // crée le timer
+        timer = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                repaint();
+            }
+        });
+        // démarre le timer
+        timer.start();
+
+    }
 
 
     //paint car
     public void paintComponent(Graphics g) {
         super.paintComponents(g);
 
-        x[0] = 0;
-        y[0] = 200;
-        for(int i = 0; i < 14; i++){
-            x[i] = 0;
-            y[i+1] = y[i]+50;
-            labels[i] = ""+(i+1);
-        }
-        labels[14] = "15";
+
         // initialize carSpeeds & move cars forward
         for (int i = 0; i < 15; i++){
             carSpeeds[i] = keepGoing * (int) (Math.round(Math.random()));
@@ -49,9 +75,10 @@ public class PanelDeCourse extends JPanel{
         for (int i = 0; i < 15; i++){
             labels[i] = Integer.toString(i+1);
         }
-/*
+
+
         if (keepGoing == 1 && timer.isRunning() == false){ // make sure all cars start at 0 before start button is pressed
-            for (int i = 0; i < 14; i++){
+            for (int i = 0; i < 15; i++){
                 x[i] = 0;
             }
         }
@@ -61,6 +88,7 @@ public class PanelDeCourse extends JPanel{
             if (x[i] > finish-100){
                 keepGoing = 0; // stop cars
                 timer.stop(); // stop timer
+                gameOver = true; // fin de la course
                 for (int index = 0; index < 15; index++){
                     labels[index] = "PERDU";
                 }
@@ -79,6 +107,21 @@ public class PanelDeCourse extends JPanel{
             }
         }
 
+        // remplissage du tableau de vainqueurs
+        for(int i = 0; i < 15; i++) {
+            if (labels[i] == "GAGNE") {
+                winners[winnersIndex] = i + 1;
+                winnersIndex++;
+                tie = false;
+                output = "Winner: Car " + (i + 1);
+            }
+            if (labels[i] == "EGALITE") {
+                winners[winnersIndex] = i + 1;
+                winnersIndex++;
+                tie = true;
+            }
+        }
+
         // création de la String gérant l'egalite
         if(keepGoing == 0 && tie == true){
             output = "TIE: Winners: Cars" + winners[0];
@@ -87,10 +130,9 @@ public class PanelDeCourse extends JPanel{
             }
         }
 
-
         if(keepGoing == 0 && timer.isRunning() == false){
             System.out.println(output);
-            lStatus.setText(output);
+            //lStatus.setText(output);
             for (int i = 0 ; i < winnersIndex; i++) {
                 if(winners[i] == car){
                     amtLeft += bet*2;
@@ -99,9 +141,37 @@ public class PanelDeCourse extends JPanel{
             }
             if(!winner){
                 amtLeft -= bet;
-                Vehicule.lAmtLeft.setText("$" + amtLeft);
+                //Vehicule.lAmtLeft.setText("$" + amtLeft);
             }
-        }*/
+        }
+        // remplit map de classement
+        if (gameOver){
+            for (int i = 0; i < 15; i++) {
+                arrivee.put((i+1), x[i]);
+                //System.out.println(arrivee.get(i+1));
+            }
+        }
+
+        // genere le classement des voitures par la distance parcourue
+        Object[] a = arrivee.entrySet().toArray();
+        Arrays.sort(a, new Comparator() {
+            public int compare(Object o1, Object o2) {
+                return ((Map.Entry<Integer, Integer>) o2).getValue().compareTo(
+                        ((Map.Entry<Integer, Integer>) o1).getValue());
+            }
+        });
+        for (Object e : a) {
+            System.out.println(place+" - Voiture n°"+((Map.Entry<Integer, Integer>) e).getKey());
+            classement.add(((Map.Entry<Integer, Integer>) e).getKey());
+            place++;
+        }
+
+        // controle remplissage classement
+        for (int i = 0; i < classement.size(); i++){
+            System.out.println(classement.get(i));
+        }
+
+
 
         //LANDSCAPE
         //herbe en fond de page

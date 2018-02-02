@@ -8,6 +8,7 @@ public class PageDeCourse extends JFrame {
         PanelDeCourse panel = new PanelDeCourse();
 
         add(panel);
+        panel.runCar();
 
         setSize(1600, 950);
         setVisible(true);
