@@ -43,4 +43,9 @@ public class Pilote extends Personne{
         this.palmares = palmares;
         this.numero = numero;
     }
+
+    public Pilote(String nom, String prenom, int age, int experience){
+        super(nom, prenom, age, "M");
+        this.experience =  experience;
+    }
 }
